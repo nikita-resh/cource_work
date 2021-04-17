@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz page</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="test.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div id="progress-and-score">
+            <div id="progress-bar">
+                <div id="progress-counter">1 of 4 questions</div>
+                <div id="progress-line">
+                    <div id="line"></div>
+                </div>
+            </div>
+            <div id="current-score">
+                <p>Score</p>
+                <p id="score">0</p>
+            </div>
+        </div>
+        <div id="quiz">
+            <p id="question-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti velit nisi cumque?</p>
+            <div id="choice">
+                <div class="choice-btn" id="choice1" data-number="1">
+                    <span class="prefix">A.</span>
+                    <span class="variant">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                </div>
+                <div class="choice-btn" id="choice2" data-number="2">
+                    <span class="prefix">B.</span>
+                    <span class="variant">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                </div>
+                <div class="choice-btn" id="choice3" data-number="3">
+                    <span class="prefix">C.</span>
+                    <span class="variant">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                </div>
+                <div class="choice-btn" id="choice4" data-number="4">
+                    <span class="prefix">D.</span>
+                    <span class="variant">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="test.js"></script>
+</body>
+</html>
