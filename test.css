@@ -74,11 +74,13 @@ body{
     border-radius: 3px;
     margin-top: 10px;
     width: 800px;
-    background-color: rgb(20, 0, 130);;
+    background-color: rgb(20, 0, 130);
+    transition-duration: .5s;
 }
 
-.choice-btn:hover{
-    transform: scale(1.03);
+.choice-btn-hover{
+    transition-duration: .2s;
+    transform: scale(1.015);
     background-color: rgb(23, 0, 155);
     color: rgba(256, 256, 256, 0.85);
     cursor: pointer;
@@ -89,5 +91,11 @@ body{
 }
 
 .green{
+    transition-duration: .5s;
     background-color: green;
+}
+
+.red{
+    transition-duration: .5s;
+    background-color: red;
 }
