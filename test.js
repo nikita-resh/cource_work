@@ -35,6 +35,13 @@ let questions = [
   },
 ];
 
+// инициализация массива результатов
+let temp = localStorage.getItem("results");
+if (temp == "" || temp == null) {
+  let results = [];
+  localStorage.setItem("results", JSON.stringify(results));
+}
+
 //
 
 const progress_line = document.querySelector("#progress-line");
@@ -60,15 +67,34 @@ for (let item of choice_btn) {
       setTimeout(del, 500);
       question_counter++;
       setTimeout(fresh, 1000);
+      save();
     } else {
       event.target.classList.add("red");
       setTimeout(del, 500);
       question_counter++;
       setTimeout(fresh, 1000);
+      save();
     }
     fresh_progress();
     event.target.classList.remove("choice-btn-hover");
   });
+}
+
+// Добавление в localStorage
+
+function save() {
+  if (question_counter == 4) {
+    let current = {
+      name: "unknown",
+      score: +score.innerHTML,
+    };
+    results = localStorage.getItem("results");
+    results = JSON.parse(results);
+    results.push(current);
+    localStorage.setItem("results", JSON.stringify(results));
+    console.log(results);
+    document.location.href = "index.html";
+  }
 }
 
 // обработка наведения
