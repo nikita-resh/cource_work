@@ -53,6 +53,8 @@ const variants = Array.from(document.querySelectorAll(".variant"));
 
 let question_counter = 0;
 
+let current;
+
 // для первого отображения
 
 fresh();
@@ -84,16 +86,18 @@ for (let item of choice_btn) {
 
 function save() {
   if (question_counter == 4) {
-    let current = {
+    current = {
       name: "unknown",
       score: +score.innerHTML,
     };
-    results = localStorage.getItem("results");
-    results = JSON.parse(results);
-    results.push(current);
-    localStorage.setItem("results", JSON.stringify(results));
-    console.log(results);
-    document.location.href = "index.html";
+    localStorage.setItem("current", JSON.stringify(current));
+
+    // results = localStorage.getItem("results");
+    // results = JSON.parse(results);
+    // results.push(current);
+    // localStorage.setItem("results", JSON.stringify(results));
+    // console.log(results);
+    document.location.href = "save.html";
   }
 }
 
