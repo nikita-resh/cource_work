@@ -2,36 +2,84 @@
 
 let questions = [
   {
-    question: "Question 1",
-    var1: "1",
-    var2: "2",
-    var3: "3",
-    var4: "4",
-    propper: 1,
-  },
-  {
-    question: "Question 2",
-    var1: "1",
-    var2: "2",
-    var3: "3",
-    var4: "4",
-    propper: 2,
-  },
-  {
-    question: "Question 3",
-    var1: "1",
-    var2: "2",
-    var3: "3",
-    var4: "4",
+    question: "Что такое условный оператор?",
+    var1: "Конструкция, что выполняет код несколько раз",
+    var2: "Конструкция для создания определенной переменной",
+    var3: "Оператор сравнения значений",
+    var4: "Не знаю :(",
     propper: 3,
   },
   {
-    question: "Question 4",
-    var1: "1",
-    var2: "2",
-    var3: "3",
-    var4: "4",
-    propper: 4,
+    question: "Какие значения можно хранить в переменных?",
+    var1: "Только числа и строки",
+    var2: "Строки, числа с точкой и простые числа",
+    var3: "Строки, числа с точкой, простые числа и булевые выражения",
+    var4: "Не знаю :(",
+    propper: 3,
+  },
+  {
+    question: "Какая переменная записана неверно?",
+    var1: `var num = "STRING";`,
+    var2: `var isDone = 0;`,
+    var3: "var number = 12,5;",
+    var4: "Не знаю :(",
+    propper: 3,
+  },
+  {
+    question: "В чем отличие между локальной и глобальной переменной?",
+    var1: "Глобальные видны повсюду, локальные только в функциях",
+    var2: "Глобальные можно переопределять, локальные нельзя",
+    var3: "Локальные можно переопределять, глобальные нельзя",
+    var4: "Не знаю",
+    propper: 1,
+  },
+  {
+    question: "Где верно указан вывод данных?",
+    var1: `console.log("Hello");`,
+    var2: "print(Hello);",
+    var3: `prompt("Hello")`,
+    var4: "Не знаю :(",
+    propper: 1,
+  },
+  {
+    question: "Какие функции выполняет JS?",
+    var1: `Выполняет работу с сервером`,
+    var2: "Создает разметку на странице сайта",
+    var3: "Отвечает за функции на стороне клиента",
+    var4: "Не знаю :(",
+    propper: 3,
+  },
+  {
+    question: "Какие циклы есть в языке JavaScript?",
+    var1: `for, while, do while`,
+    var2: "for, forMap, foreach, while, do while",
+    var3: "for, while, do while, foreach",
+    var4: "Не знаю :(",
+    propper: 1,
+  },
+  {
+    question: "Где верно указан запуск всплывающего окна?",
+    var1: `new alert ("Hi")`,
+    var2: `alert ("Hi")`,
+    var3: `info ("Hi")`,
+    var4: "Не знаю :(",
+    propper: 2,
+  },
+  {
+    question: "Где верно указано имя переменной?",
+    var1: `var 2num;`,
+    var2: `var num-1;`,
+    var3: `var num_1;`,
+    var4: "Не знаю :(",
+    propper: 3,
+  },
+  {
+    question: "Как правильно написать if условие в JavaScript?",
+    var1: `if (i == 5)`,
+    var2: `if i == 5 then`,
+    var3: `if i = 5 then`,
+    var4: "Не знаю :(",
+    propper: 1,
   },
 ];
 
@@ -63,29 +111,32 @@ fresh();
 
 for (let item of choice_btn) {
   item.addEventListener("click", function () {
-    if (event.target.dataset.number == questions[question_counter].propper) {
-      event.target.classList.add("green");
+    console.log(event);
+    if (item.dataset.number == questions[question_counter].propper) {
+      // event.target.classList.add("green");
+      item.classList.add("green");
       addPoints();
       setTimeout(del, 500);
       question_counter++;
       setTimeout(fresh, 1000);
       save();
     } else {
-      event.target.classList.add("red");
+      // event.target.classList.add("red");
+      item.classList.add("red");
       setTimeout(del, 500);
       question_counter++;
       setTimeout(fresh, 1000);
       save();
     }
     fresh_progress();
-    event.target.classList.remove("choice-btn-hover");
+    item.classList.remove("choice-btn-hover");
   });
 }
 
 // Добавление в localStorage
 
 function save() {
-  if (question_counter == 4) {
+  if (question_counter == 10) {
     current = {
       name: "unknown",
       score: +score.innerHTML,
@@ -109,6 +160,9 @@ for (let item of choice_btn) {
   });
   item.addEventListener("mouseleave", function (event) {
     event.target.classList.remove("choice-btn-hover");
+    for (item of variants) {
+      item.classList.remove("choice-btn-hover");
+    }
   });
 }
 
