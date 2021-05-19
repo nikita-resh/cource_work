@@ -1,4 +1,5 @@
 let base = document.querySelector(".list");
+let clearBtn = Array.from(document.querySelectorAll("a"))[1];
 
 let results = localStorage.getItem("results");
 results = Array.from(JSON.parse(results));
@@ -14,4 +15,8 @@ for (let item of results) {
   base.append(div);
 }
 
-console.log(results);
+clearBtn.addEventListener("click", () => {
+  let temp = localStorage.getItem("results");
+  let results = [];
+  localStorage.setItem("results", JSON.stringify(results));
+});
